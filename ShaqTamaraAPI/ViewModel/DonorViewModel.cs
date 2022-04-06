@@ -8,7 +8,7 @@ namespace ShaqTamaraAPI.ViewModel
         public string FirstName { get; set; }
 
         [Required, StringLength(100)]
-        public string LastName { get; set; }
+        public string LastName { get; set; }        
         public string Category { get; set; }
         [Required(ErrorMessage = "Password is required"), StringLength(256)]
         public string Password { get; set; }

@@ -32,11 +32,14 @@ namespace ShaqTamaraAPI.Services
         {
             if (await _userManager.FindByEmailAsync(model.Email) is not null)
                 return new AuthModel { Message = "Email is already registered!" };
+            if (await _userManager.FindByNameAsync(model.Username) is not null)
+                return new AuthModel { Message = "Username is already registered!" };
 
             var user = new ApplicationUser
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
+                UserName=model.Username,
                 Email = model.Email,
 
             };
@@ -94,13 +97,14 @@ namespace ShaqTamaraAPI.Services
             if (await _userManager.FindByNameAsync(model.PhoneNumber) is not null)
                 return new AuthModel { Message = "Phone is already registered!" };
 
+
             var user = new ApplicationUser
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                PhoneNumber = model.PhoneNumber,
+                UserName=model.PhoneNumber,
+                PhoneNumber = model.Phone2,
                 Category = model.Category,
-                Phone2 = model.Phone2,
                 Governorate = model.Governorate,
                 Address = model.Address,
                 latitudes = model.latitudes,
@@ -142,7 +146,7 @@ namespace ShaqTamaraAPI.Services
 
             if (user is null || !await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                authModel.Message = "Email or Password is incorrect!";
+                authModel.Message = "Phone or Password is incorrect!";
                 return authModel;
             }
 
@@ -166,8 +170,8 @@ namespace ShaqTamaraAPI.Services
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                PhoneNumber = model.PhoneNumber,
-                Phone2 = model.Phone2,
+                UserName = model.PhoneNumber,
+                PhoneNumber = model.Phone2,
                 Governorate = model.Governorate,
                 Address = model.Address,
                 latitudes = model.latitudes,
@@ -234,8 +238,8 @@ namespace ShaqTamaraAPI.Services
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                PhoneNumber = model.PhoneNumber,
-                Phone2 = model.Phone2,
+                UserName = model.PhoneNumber,
+                PhoneNumber = model.Phone2,
                 Governorate = model.Governorate,
                 Address = model.Address,
                 latitudes = model.latitudes,

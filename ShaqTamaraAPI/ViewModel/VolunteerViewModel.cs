@@ -4,6 +4,7 @@ namespace ShaqTamaraAPI.ViewModel
 {
     public class VolunteerViewModel
     {
+        
         [Required, StringLength(100)]
         public string FirstName { get; set; }
 

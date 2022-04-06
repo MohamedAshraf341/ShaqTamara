@@ -8,7 +8,10 @@ namespace ShaqTamaraAPI.ViewModel
         public string FirstName { get; set; }
 
         [Required, StringLength(100)]
-        public string LastName { get; set; }        
+        public string LastName { get; set; }
+        
+        [Required(ErrorMessage = "Username is required")]
+        public string Username { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }

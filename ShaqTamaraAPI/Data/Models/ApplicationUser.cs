@@ -18,8 +18,7 @@ namespace ShaqTamaraAPI.Data.Models
         public string latitudes { get; set; }
         [MaxLength(256)]
         public string longitudes { get; set; }
-        [MaxLength(100)]
-        public string Phone2 { get; set; }
+
         [MaxLength(100)]
         public string Governorate { get; set; }
         [MaxLength(100)]
