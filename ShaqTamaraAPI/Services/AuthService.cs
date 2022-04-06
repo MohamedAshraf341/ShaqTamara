@@ -155,7 +155,7 @@ namespace ShaqTamaraAPI.Services
 
             authModel.IsAuthenticated = true;
             authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
-            authModel.PhoneNumber = user.PhoneNumber;
+            authModel.PhoneNumber = user.UserName;
             authModel.ExpiresOn = jwtSecurityToken.ValidTo;
             authModel.Roles = rolesList.ToList();
 
@@ -223,7 +223,7 @@ namespace ShaqTamaraAPI.Services
 
             authModel.IsAuthenticated = true;
             authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
-            authModel.PhoneNumber = user.PhoneNumber;
+            authModel.PhoneNumber = user.UserName;
             authModel.ExpiresOn = jwtSecurityToken.ValidTo;
             authModel.Roles = rolesList.ToList();
 
@@ -290,7 +290,7 @@ namespace ShaqTamaraAPI.Services
 
             authModel.IsAuthenticated = true;
             authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
-            authModel.PhoneNumber = user.PhoneNumber;
+            authModel.PhoneNumber = user.UserName;
             authModel.ExpiresOn = jwtSecurityToken.ValidTo;
             authModel.Roles = rolesList.ToList();
 
